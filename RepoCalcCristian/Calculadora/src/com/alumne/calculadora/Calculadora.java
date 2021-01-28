@@ -29,7 +29,6 @@ public class Calculadora {
 	protected Shell shell;
 	private static Text text_resultat;
 
-
 	//Constructor de la classe calculadora amb par�metre
 
 	public Calculadora(boolean gui) {
@@ -38,9 +37,7 @@ public class Calculadora {
 		inicialitza();
 
 		if (gui==true) dibuixaCalculadora();
-
 	}
-
 
 	//Codi autom�tic per a pintar la GUI
 
@@ -77,11 +74,9 @@ public class Calculadora {
 		shell.setSize(259, 250);
 		shell.setText("Calculadora");
 
-
 		//-------------------------------------------------
 		//N�meros
 		//-------------------------------------------------
-
 
 		Button button_0 = new Button(shell, SWT.NONE);
 		button_0.addSelectionListener(new SelectionAdapter() {
@@ -92,7 +87,6 @@ public class Calculadora {
 		});
 		button_0.setBounds(23, 163, 40, 33);
 		button_0.setText("0");
-
 
 		Button button_1 = new Button(shell, SWT.NONE);
 		button_1.addSelectionListener(new SelectionAdapter() {
@@ -114,7 +108,6 @@ public class Calculadora {
 		});
 		button_2.setText("2");
 		button_2.setBounds(69, 124, 40, 33);
-
 
 		//but� amb el n�mero 3
 		Button button_3 = new Button(shell, SWT.NONE);
@@ -259,6 +252,10 @@ public class Calculadora {
 		text_resultat.setBounds(22, 19, 196, 21);
 
 	}
+	
+	/*
+	 *Inicialitza les variables que s'utilitzaran en el programa per fer les operacións entre els dos enters
+	 */
 
 	public void inicialitza()  {
 		operacio = "null";
@@ -267,14 +264,26 @@ public class Calculadora {
 		mode = MODE_ENTRADA;
 		inicialitza_resultat = true;
 	}
+	
+	/*
+	 *Llegeix el resultat com a string
+	 */
 
 	public String getResultatString (){
 		return text_resultat.getText();
 	}
+	
+	/*
+	 *Converteix el enter per a que es mostre en pantalla
+	 */
 
 	public void setResultatString(String s){
 		text_resultat.setText(s);
 	}
+	
+	/*
+	 *Llegeix el string com a resultat el converteix a enter
+	 */
 
 	public int getResultatInt()  {
 		String resultat = text_resultat.getText();
@@ -319,8 +328,6 @@ public class Calculadora {
 			mostraResultat(resultat);
 			valor1 = resultat;     
 		}
-
-
 	}
 
 	public void executarIgual(){
@@ -348,7 +355,6 @@ public class Calculadora {
 			} else {
 				resultat = valor1 / valor2;
 			}
-			
 			//... i descomentar aquesta part per a produir l'excepci�
 			//resultat = valor1 / valor2;
 		}
@@ -371,6 +377,4 @@ public class Calculadora {
 		mode = MODE_RESULTAT;
 		inicialitza_resultat = true;
 	}
-
-
 }
